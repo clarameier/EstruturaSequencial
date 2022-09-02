@@ -3,24 +3,29 @@
 # b) comprar apenas galões de 3,6 litros;
 # c) misturar latas e galões, de forma que o desperdício de tinta seja menor. Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, considere latas cheias.
 
+#programa
 import math
 
-print('='*14)
-print('Loja de Tintas')
-print('='*14)
-print()
+area = float(input('Diga, em m², o tamanho da área a ser pintada: '))
 
-area = float(input('Área a ser pintada (m²): '))
-litros = area/6
-litros_folga = litros + litros*.10
-latao = litros_folga//18
-latinhas = (litros_folga - 18*latao)/3.6
-latinhas_arredondado = math.ceil(latinhas)
-preco = latao*80 + latinhas_arredondado*25
+tinta = area / 6
 
-print('a) comprar apenas latas de 18 litros: ', math.ceil(litros/18))
-print('b) comprar apenas galões de 3,6 litros: ', math.ceil(litros/3.6))
-print('c) comprar latas e galões:')
-print('   Latas: ', latao)
-print('   Galões: ', latinhas_arredondado)
-print('='*14)
+#LATAS
+latas = tinta / 18
+arred = math.ceil(latas)
+total_latas = arred * 80.00
+
+#GALÃO
+galao = tinta / 3.6
+arreg = math.ceil(galao)
+total_galao = arreg * 25.00
+
+# a)
+print('Se escolher comprar latas, você precisará de {} litros.'.format(tinta))
+print('Ou seja, em uma lata vem 18 litros, e por isso, você precisará de apenas {} lata(s).'.format(arred))
+print('Logo, seu total será de {} reais.'.format(total_latas))
+
+#b)
+print('Porém, se você escolher comprar em galão, vai estar precisando ainda de {} litros.'.format(tinta))
+print('Então, como um galão vem 3,6 litros, você precisará de apenas {} galão(ões).'.format(arreg))
+print('Logo, seu total será de {} reais.'.format(total_galao))
